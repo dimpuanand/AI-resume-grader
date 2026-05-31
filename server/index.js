@@ -273,3 +273,22 @@ app.post("/api/resume/upload", upload.single("resume"), async (req, res) => {
 app.listen(5000, () => {
   console.log("Server running on http://localhost:5000");
 });
+// ─── Home Route ───────────────────────────────────────────────────────────────
+app.get("/", (req, res) => {
+  res.send("AI Resume Grader API is running!");
+});
+
+// Health Check Route
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Server is healthy",
+  });
+});
+
+// ─── Start ────────────────────────────────────────────────────────────────────
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
