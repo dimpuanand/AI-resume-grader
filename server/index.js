@@ -174,7 +174,7 @@ app.post("/api/v1/resume/upload", protect, upload.single("resume"), async (req, 
       form.append("job_description", req.body.jobDescription);
     }
 
-    const response = await axios.post("http://localhost:5001/analyze", form, {
+    const response = await axios.post("https://ai-resume-ai.onrender.com/analyze", form, {
       headers: form.getHeaders(),
     });
 
@@ -256,7 +256,7 @@ app.post("/api/resume/upload", upload.single("resume"), async (req, res) => {
     const form = new FormData();
     form.append("resume", fs.createReadStream(newPath), originalName);
 
-    const response = await axios.post("http://localhost:5001/analyze", form, {
+    const response = await axios.post("https://ai-resume-ai.onrender.com/analyze", form, {
       headers: form.getHeaders(),
     });
 
