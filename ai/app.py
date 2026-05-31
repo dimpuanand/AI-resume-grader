@@ -202,6 +202,13 @@ def build_fallback_suggestions(text_lower, matched, missing, action_matches, job
 # ---------------------------------------------------------------------------
 # Route
 # ---------------------------------------------------------------------------
+@app.route("/")
+def home():
+    return {
+        "status": "running",
+        "message": "AI Resume Grader API is live"
+    }
+
 @app.route("/analyze", methods=["POST"])
 def analyze():
     if "resume" not in request.files:
