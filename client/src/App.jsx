@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API = "https://ai-resume-ai.onrender.com";
+const API = "https://ai-resume-grader-z2pj.onrender.com";
 
 const tips = [
   "Keep your resume to 1-2 pages max.",
