@@ -179,10 +179,12 @@ app.post("/api/v1/resume/upload", protect, upload.single("resume"), async (req, 
     if (req.body.jobDescription) {
       form.append("job_description", req.body.jobDescription);
     }
-
-    https://ai-resume-ai.onrender.com/analyze
-      headers: form.getHeaders(),
-    });
+  const response = await axios.post("https://ai-resume-ai.onrender.com/analyze", form, {
+  headers: form.getHeaders(),
+  timeout: 120000,
+});
+  
+    
 
     fs.unlinkSync(newPath);
 
