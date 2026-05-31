@@ -1,0 +1,6 @@
+flask
+flask-cors
+google-genai
+pdfminer.six
+python-docx
+gunicorn
