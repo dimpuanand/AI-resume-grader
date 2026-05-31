@@ -13,7 +13,13 @@ const Resume = require("./models/Resume");
 const { protect, JWT_SECRET } = require("./middleware/auth");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://ai-resume-frontend-l6t8.onrender.com"
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // Connect MongoDB
@@ -174,7 +180,7 @@ app.post("/api/v1/resume/upload", protect, upload.single("resume"), async (req, 
       form.append("job_description", req.body.jobDescription);
     }
 
-    const response = await axios.post("https://ai-resume-ai.onrender.com/analyze", form, {
+    const response = await axios.post("http://localhost:5001/analyze", form, {
       headers: form.getHeaders(),
     });
 
